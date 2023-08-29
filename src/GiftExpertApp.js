@@ -9,6 +9,7 @@ export const GifExpert = () => {
       setInputValue("");
     };
 
+    
   return (
     <>
       <h1>GifExpert</h1>
