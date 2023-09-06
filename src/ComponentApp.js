@@ -1,10 +1,10 @@
 
-const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
+const categories = ['first category'];
 
 export const ComponentApp = () => {
     return (
         <>
-            <h1>GifExpert</h1>
+            <h1>ComponentApp</h1>
             <ol>
                 {
                     categories.map(

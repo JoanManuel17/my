@@ -11,7 +11,7 @@ export const ComponenteAppChallenge = () => {
 
   return (
     <>
-      <h1>GifExpert</h1>
+      <h1>Challenge</h1>
 
       <input
         value={inputValue}
