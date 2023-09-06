@@ -1,31 +1,28 @@
-import { useState } from "react";
+import React from "react";
+import AddCategory from "./components/AddCategory";
+import GifGrid from "./components/GifGrid";
 
-export const GifExpert = () => {
-  const [categories, setCategory] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+const GiftExpertApp = () => {
+  const [categories, setCategories] = useState(["Zodiac"]);
 
-  const add = () => {
-      setCategory([...categories, inputValue]);
-      setInputValue("");
-    };
+  const onAddCategory = (category) => {
+    setCategories([...list, category]);
+  };
 
-    
   return (
-    <>
-      <h1>GifExpert</h1>
+  <>
+    <h1>GiftExpertApp</h1>;
 
-      <input
-        value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-      ></input>
-      <button onClick={() => add()}> Agregar </button>
-      <ol>
-        {categories.map((category, key) => {
-          return <li key={key}>{category}</li>;
-        })}
-      </ol>
-    </>
-  );
+    <AddCategory onAddCategory={onAddCategory} />
+    {
+      categories.map((category, key) => 
+      {
+        return <GifGrid  category={category} key={key}/>
+      }
+      )
+    }
+  </>
+  )
 };
+
+export default GiftExpertApp;

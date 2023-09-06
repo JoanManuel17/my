@@ -1,17 +1,12 @@
-import { GifExpert } from "./GiftExpertApp";
+import { ComponenteAppChallenge } from "./ComponenteAppChallenge";
 
 function App() { 
    
   return (
     <> 
-      <h1>Hola Mundo</h1>
-      <h2>Subtitulo</h2>
-      <p>Esto es un parrafo</p> 
-      <GifExpert />
+      <ComponenteAppChallenge />
     </>
-  
   )
-  
 }
 
 export default App;
