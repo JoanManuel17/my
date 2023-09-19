@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const FirstApp = ({p}) => {
+const FirstApp3 = ({p}) => {
 
   const [a, setA] = useState(p);
 
@@ -32,7 +32,7 @@ const FirstApp = ({p}) => {
     )
   }
 
-export default FirstApp;
+export default FirstApp3;
 
   // FirstApp.propTypes = {
   //   title: PropTypes.string.isRequired,

@@ -12,7 +12,7 @@ const GiftExpertApp = () => {
 
   return (
   <>
-    <h1>GiftExpertApp</h1>;
+    <h1>GiftExpertApp</h1>
 
     <AddCategory onAddCategory={onAddCategory} />
     {
