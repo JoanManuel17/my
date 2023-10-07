@@ -1,5 +1,4 @@
-import { ComponenteAppChallenge } from "./ComponenteAppChallenge";
-import GiftExpertApp from "./GiftExpertApp";
+import React from 'react';
 
 function App() { 
    
