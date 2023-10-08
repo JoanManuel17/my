@@ -1,12 +1,12 @@
-import { ComponenteAppChallenge } from "./ComponenteAppChallenge";
-import GiftExpertApp from "./GiftExpertApp";
+import React from 'react';
+import './App.css';
 
-function App() { 
+const App = () => { 
    
   return (
     <> 
-      <GiftExpertApp />
-      <ComponenteAppChallenge />
+      <h1> Hola Mundo </h1>
+      <h2> Bienvenido </h2>
     </>
   )
 }
