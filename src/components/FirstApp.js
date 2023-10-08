@@ -1,6 +1,6 @@
 const title = 'FirstApp';
 
-const FirstApp2 = ({title}) => { 
+const FirstApp = ({title}) => { 
     return (
       <>
         <h1>{title}</h1>    
@@ -8,4 +8,4 @@ const FirstApp2 = ({title}) => {
       </>
     )
   }
-export default FirstApp2;
+export default FirstApp;
