@@ -34,13 +34,13 @@ const FirstApp = ({p}) => {
 
 export default FirstApp;
 
-  // FirstApp.propTypes = {
-  //   title: PropTypes.string.isRequired,
-  //   sum: PropTypes.number.isRequired
-  // }
+     FirstApp.propTypes = {
+       title: PropTypes.string.isRequired,
+       sum: PropTypes.number.isRequired
+     }
 
-  // FirstApp.defaultProps = {
-  //   title: 'No hay titulo',
-  //   sum: 300
-  // }
+     FirstApp.defaultProps = {
+       title: 'No hay titulo',
+      sum: 300
+  }
 
