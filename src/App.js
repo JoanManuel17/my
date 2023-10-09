@@ -1,4 +1,3 @@
-import { ComponenteAppChallenge } from "./ComponenteAppChallenge";
 import GiftExpertApp from "./GiftExpertApp";
 
 function App() { 
@@ -6,7 +5,6 @@ function App() {
   return (
     <> 
       <GiftExpertApp />
-      <ComponenteAppChallenge />
     </>
   )
 }
