@@ -2,11 +2,12 @@ import React from "react";
 import { useReducer } from "react";
 import { TodoReducer } from "./TodoReducer";
 import TodoList from "./TodoList";
-import TodoAdd from "./TodoAdd";
+import {TodoAdd} from "./TodoAdd";
 import { useEffect } from "react";
+import * as  types  from "./types";
 
 const init = () => {
-  return JSON.parse(localStorage.getItem("todos")) || [];
+  return JSON.parse(localStorage.getItem('todos')) || [];
 };
 
 const initialState = [
@@ -26,7 +27,7 @@ export const TodoApp = () => {
 
   const handleNewTodo = (todo) => {
     const action = {
-      type: "TODO ADD",
+      type: types.CREATE_TODO,
       payload: todo,
     };
 
@@ -44,7 +45,7 @@ export const TodoApp = () => {
           <TodoList todos={todos} />
         </div>
         <div className="col-5">
-          <TodoForm onNewTodo={handleNewTodo} />
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
       </div>
     </>
