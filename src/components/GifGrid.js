@@ -1,9 +1,9 @@
 import React from "react";
 import { useFetchGifs } from "../hooks/UseFetchGifs";
-import {GifItem} from "./GifItem";
+import { GifItem } from "./GifItem";
 
 export const GifGrid = ({ category }) => {
-  const { images, isLoading } = useFetchGifs(category);
+  const { images, isloading } = useFetchGifs(category);
 
   return (
     <>
