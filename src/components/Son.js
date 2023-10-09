@@ -1,15 +1,13 @@
 import React, { useMemo } from "react";
 
 export const Son = ({ numero, increment }) => {
-  console.log('Rendering Son component...'); 
+  console.log('again reloaded...'); 
 
-  const memoHook = useMemo(() => {
-    return (
-      <button className='btn btn-primary mr-3' onClick={() => increment(numero)}>
-        {numero}
-      </button>
-    );
-  }, [numero, increment]);
+  const MemoHook = useMemo(() => increment, [increment]);
 
-  return memoHook;
+  return (
+    <button className='btn btn-primary mr-3' onClick={() => MemoHook(numero)}>
+      {numero}
+    </button>
+  );
 };
