@@ -2,7 +2,6 @@
 const categories = ["first category"];
 
 export const ComponentApp = () => {
-  const { count, increment, decrement, reset } = useCounter(0);
 
   return (
     <>
