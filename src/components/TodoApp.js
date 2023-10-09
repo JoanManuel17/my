@@ -2,12 +2,7 @@ import React from "react";
 import { useReducer } from "react";
 import { TodoReducer } from "./TodoReducer";
 import TodoList from "./TodoList";
-import TodoAdd from "./TodoAdd";
-import { useEffect } from "react";
-
-const init = () => {
-  return JSON.parse(localStorage.getItem("todos")) || [];
-};
+import {TodoAdd} from "./TodoAdd";
 
 const initialState = [
   {
@@ -18,11 +13,7 @@ const initialState = [
 ];
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(TodoReducer, initialState, init);
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  const [todos, dispatch] = useReducer(TodoReducer, initialState);
 
   const handleNewTodo = (todo) => {
     const action = {
@@ -31,12 +22,13 @@ export const TodoApp = () => {
     };
 
     dispatch(action);
+
   };
 
   return (
     <>
       <h1>
-        Todo App: 10 <small>pendientes: 2</small>{" "}
+        Todo App: 10 <small>pendientes: 2 </small>{" "}
       </h1>
       <hr />
       <div className="row">
@@ -44,8 +36,10 @@ export const TodoApp = () => {
           <TodoList todos={todos} />
         </div>
         <div className="col-5">
-          <TodoForm onNewTodo={handleNewTodo} />
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
+        
+
       </div>
     </>
   );
