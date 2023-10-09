@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGifs } from "../helpers/GetGifs";
 
-export const useFetch = (url) => {
+export const UseFetch = (url) => {
 
     const [state, setState] = useState({
         data: null,
