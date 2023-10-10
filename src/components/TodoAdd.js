@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const TodoAdd = ({ onNewTodo }) => {
-  const onFormSubmit = (event) => {
-    event.preventDefault();
+export const TodoAdd = ({ handleNewTodo }) => {
+  const [inputValue, setInputValue] = useState("");
 
-    const newTodo = {
-      id: new Date().getTime(),
-      description: "Nueva tarea",
-      done: false,
-    };
-
-    onNewTodo(newTodo);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim().length > 0) {
+      const newTodo = {
+        id: new Date().getTime(),
+        description: inputValue,
+        done: false,
+      };
+      handleNewTodo(newTodo);
+      setInputValue("");
+    }
   };
 
   return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <input type="text" className="form-control" placeholder="Tarea" />
-      <button type="submit" className="btn btn-outline-primary mt-1">
-        {" "}
-        Agregar
-      </button>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Agregar tarea..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <button type="submit">Agregar</button>
     </form>
   );
 };

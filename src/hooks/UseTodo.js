@@ -1,27 +1,42 @@
-import { useState } from "react";
+import { useEffect, useReducer } from "react";
+import { TodoReducer } from "../components/TodoReducer";
+import * as types from "../components/types";
 
-export const useTodo = (initialTodos) => {
-  const [todos, setTodos] = useState(initialTodos);
+const initialState = [];
 
-  const addTodo = (description) => {
-    const newTodo = { id: todos.length + 1, description: description, done: false };
-    setTodos([...todos, newTodo]);
+const init = () => {
+  return JSON.parse(localStorage.getItem("todos")) || [];
+};
+
+export const useTodos = () => {
+  const [todos, dispatch] = useReducer(TodoReducer, initialState, init);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const handleNewTodo = (todo) => {
+    const action = {
+      type: types.CREATE_TODO,
+      payload: todo,
+    };
+    dispatch(action);
   };
 
-  const deleteTodo = (id) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  const handleDeleteTodo = (id) => {
+    const action = {
+      type: types.DELETE_TODO,
+      payload: id,
+    };
+    dispatch(action);
   };
 
-  const toggleTodo = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, done: !todo.done };
-        } else {
-          return todo;
-        }
-      })
-    );
+  const handleToggleTodo = (id) => {
+    const action = {
+      type: types.TOGGLE_TODO,
+      payload: id,
+    };
+    dispatch(action);
   };
 
   const countTodos = () => {
@@ -32,11 +47,12 @@ export const useTodo = (initialTodos) => {
     return todos.filter((todo) => !todo.done).length;
   };
 
-    return {
-        addTodo,
-        deleteTodo,
-        toggleTodo,
-        countTodos,
-        countPendingTodos
-    }
-}
+  return {
+    todos,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+    countTodos,
+    countPendingTodos,
+  };
+};
