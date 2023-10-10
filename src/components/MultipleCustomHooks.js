@@ -5,7 +5,7 @@ import { UseFetch } from "../hooks/UseFetch";
 export const MultipleCustomHooks = () => {
   const { counter, increment } = UseCounter(1);
   const { data, isLoading, hasError } = UseFetch(
-    `https://breakingbadapi.com/api/quotes/${counter}`
+    `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`
   );
 
   return (
