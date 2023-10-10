@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Son from "./Son";
+import {Son} from "./Son";
 
 export const Father = () => {
   const list = [2, 4, 6, 8, 10];
