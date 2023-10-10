@@ -4,14 +4,7 @@ import { TodoAdd } from "./TodoAdd";
 import { useTodos } from "../hooks/UseTodo";
 
 export const TodoApp = () => {
-  const {
-    todos,
-    handleNewTodo,
-    handleDeleteTodo,
-    handleToggleTodo,
-    countTodos,
-    countPendingTodos,
-  } = useTodos();
+  const {todos, handleNewTodo, handleDeleteTodo, handleToggleTodo, countTodos, countPendingTodos} = useTodos();
 
   return (
     <div>
