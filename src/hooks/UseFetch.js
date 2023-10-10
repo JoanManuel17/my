@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { getGifs } from "../helpers/GetGifs";
 
 export const useFetch = (url) => {
 
