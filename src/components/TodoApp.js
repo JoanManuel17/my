@@ -4,7 +4,14 @@ import { TodoAdd } from "./TodoAdd";
 import { useTodos } from "../hooks/UseTodo";
 
 export const TodoApp = () => {
-  const {todos, handleNewTodo, handleDeleteTodo, handleToggleTodo, countTodos, countPendingTodos} = useTodos();
+  const {
+    todos,
+    handleNewTodo,
+    handleDeleteTodo,
+    handleToggleTodo,
+    countTodos,
+    countPendingTodos,
+  } = useTodos();
 
   return (
     <div>
@@ -15,8 +22,8 @@ export const TodoApp = () => {
         handleDeleteTodo={handleDeleteTodo}
         handleToggleTodo={handleToggleTodo}
       />
-      <p>Total Todos: {countTodos()}</p>
-      <p>Pending Todos: {countPendingTodos()}</p>
+      <p>CountTodos : {countTodos()}</p>
+      <p>CountPendingTodos: {countPendingTodos()}</p>
     </div>
   );
 };
