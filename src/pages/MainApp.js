@@ -1,4 +1,5 @@
 import { Link, NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { ProductsPage } from "../components/ProductsPage";
 
 
 export const MainApp = () => {
