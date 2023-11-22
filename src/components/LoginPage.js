@@ -17,9 +17,11 @@ export const LoginPage = () => {
     <>
       <div> Login Page</div>
       <pre>{JSON.stringify(user, null, 3)}</pre>
-      <button className="btn btn-primary" onClick={() => onLogin}>
+      <button className="btn btn-primary" onClick={() => onLogin()}>
         Login
       </button>
     </>
   );
 };
+
+
