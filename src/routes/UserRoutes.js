@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { HomePage, ProfilePage } from "./components"
+import { HomePage, ProfilePage } from "../components"
 
 export const UserRoutes = ()=>{
     

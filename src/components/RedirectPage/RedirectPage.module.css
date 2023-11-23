@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+h1{
+    margin: 0;
+}
+
+.info{
+    color: gray;
+}
+
+.message{
+    font-size: smaller;
+    color: orange
+}
+
+p{
+    margin: 0;
+}

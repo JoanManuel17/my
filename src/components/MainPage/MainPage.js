@@ -1,9 +1,7 @@
 import React from 'react'
 
-const MainPage = () => {
+export const MainPage = () => {
   return (
     <div>MainPage</div>
   )
 }
-
-export default MainPage

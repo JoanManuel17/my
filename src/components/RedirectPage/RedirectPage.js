@@ -1,5 +1,6 @@
 import { CircularProgress } from "@mui/material"
 import { useNavigate } from "react-router"
+import styles from "./RedirectPage.module.css"
 
 export const RedirectPage = ()=>{
     const navigate = useNavigate()
