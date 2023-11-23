@@ -11,7 +11,7 @@ export const App = () => {
       <h1>Counter: {counter}</h1>
       <button onClick={() => dispatch(increment())}>Increment</button>
       <button onClick={() => dispatch(decrement())}>Decrement</button>
-      <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button>
+      <button onClick={() => dispatch(incrementBy(5))}>Increment by 5</button>
     </div>
   );
 }
