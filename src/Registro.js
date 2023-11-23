@@ -1,52 +1,44 @@
+import { onAuthStateChanged } from "@firebase/auth";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";  
-import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
 import { auth } from "./firebase/config";
 import { useForm } from "./hooks/useForm";
-import { logout, register } from "./store/Slice/auth/AuthSlice";
 import { registerAuth } from "./store/Slice/auth/Thunks";
-import { async } from "q";
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
+import { login, loginWithGoogle, logout } from "./store/Slice/auth/AuthSlice";
 
 export const Registro = () => {
-  const dispatch = useDispatch();
 
-  const { email, password, onInputChange } = useForm({
-    email: "joan.penna@uao.edu.co",
-    password: "123456",
-  });
+    const authState = useSelector((state) => state.auth);
+    const memoizedAuthState = useMemo(() => authState, [authState]);
+    const dispatch = useDispatch();
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    dispatch(registerAuth(email, password));
-  };
-
-  useEffect(() => {
-    onAuthStateChanged(auth,(user) => {
-      if (!user) return dispatch(logout());
-
-      dispatch(register({ email: user.email }));
+    const { email, password, onInputChange, formState } = useForm({
+        email: 'jmpenna17@gmail.com',
+        password: '123456'
     });
-  }, [dispatch]);
+    
+    const onSubmit = (event) => {
+        event.preventDefault();
+        dispatch(login({ email, password }));
+    };
+    
+    const onLoginWithGoogle = () => {
+        dispatch(loginWithGoogle());
+    };
+    
+    const onLogout = () => {
+        dispatch(logout());
+    };
 
-
-  return (
-    <div>
-      <h1>Registro</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="email"
-          name="email"
-          onChange={onInputChange}
-          value={email}
-        />
-        <input
-          type="password"
-          name="password"
-          onChange={onInputChange}
-          value={password}
-        />
-        <button type="submit">Registro</button>
-      </form>
-    </div>
-  );
-};
+    return (
+        <>
+            <h1>Registro</h1>
+            <hr/>
+            <button onClick={onSubmit} disabled={memoizedAuthState.user}>Login</button>
+            <button onClick={onLoginWithGoogle} disabled={memoizedAuthState.user}>Login with Google</button>
+            <button onClick={onLogout} disabled={!memoizedAuthState.user}>Logout</button>
+        </>
+    )
+}
