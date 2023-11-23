@@ -25,7 +25,6 @@ export const authSlice = createSlice({
         action.payload.password
       )
         .then((userCredential) => {
-          // User is signed in
           state.user = userCredential.user;
         })
         .catch((error) => {
@@ -36,7 +35,6 @@ export const authSlice = createSlice({
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
         .then((result) => {
-          // User is signed in
           state.user = result.user;
         })
         .catch((error) => {
@@ -46,7 +44,6 @@ export const authSlice = createSlice({
     logout: (state) => {
       signOut(auth)
         .then(() => {
-          // User is signed out
           state.user = null;
         })
         .catch((error) => {
