@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { AboutPage, Handle404, LoginPage, MainPage } from "../components/Index"
+import { AboutPage, Handle404, LoginPage, MainPage } from "../components"
 import { NavComponent } from "../shared/NavComponent/NavComponent"
 import { PrivateRoutes } from "../components/PrivateRoutes/PrivateRoutes"
 import { UserRoutes } from "./UserRoutes"
