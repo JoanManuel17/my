@@ -1,12 +1,27 @@
 import React, { useContext } from "react";
-import { useLocation } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext.js";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavComponent } from "../pages/NavComponent.js";
 
-export const PrivateRoute = ({ children }) => {
-  const { user } = useContext(UserContext);
+export const PrivateRoutes = ({ children }) => {
+	const { isLoggedIn } = useContext(AuthContext);
+	const navigate = useNavigate();
 
-  const { pathname, search } = useLocation();
-  localStorage.setItem("lastPath", `${pathname}${search}`);
+	const { pathname, search } = useLocation();
+	localStorage.setItem("lastPath", `${pathname}${search}`);
 
-  return user ? children : <>Error 403</>;
+	const goToLogIn = () => {
+		navigate("/login");
+	};
+
+	return isLoggedIn ? (
+		children
+	) : (
+		<>
+			<NavComponent />
+			<h1>HOLI</h1>
+			<h2>DESLOGUEATE</h2>
+			<button onClick={() => goToLogIn()}> metele</button>
+		</>
+	);
 };

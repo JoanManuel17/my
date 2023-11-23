@@ -1,24 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
+import React from 'react'
+import { Link,NavLink,Route,Routes } from 'react-router-dom'
+import { LoginPage } from './LoginPage'
+import { AboutPage } from './AboutPage'
+import { HomePage } from './HomePage'
 
-import './NavComponent.css'; // Import your CSS file for styling
-
-const NavComponent = () => {
+export const NavComponent = () => {
   return (
-    <nav className="navbar">
-      <ul className="nav-menu">
-        <li className="nav-item">
-          <Link to="/" className="nav-link" activeClassName="active">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/about" className="nav-link" activeClassName="active">About</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/contact" className="nav-link" activeClassName="active">Contact</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-};
-
-export default NavComponent;
+    <div>
+        <div className='Nav'>
+            
+            <br/>
+            <Link to="/" className='Links'>Home</Link><br/>
+            <Link to="/Login" className='Links'>Login</Link><br/>
+            <Link to="/About" className='Links'>About</Link><br/>
+        </div>
+        <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/Login' element={<LoginPage/>} />
+            <Route path='/About' element={<AboutPage/>} />
+        </Routes>
+    </div>
+  )
+}
